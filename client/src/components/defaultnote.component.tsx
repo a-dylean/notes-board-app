@@ -1,14 +1,15 @@
 "use client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useState } from "react";
+import { BASE_URL } from "../../appconfig";
+import { api } from "@/app/api/actions";
 
 export const DefaultNote = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const queryClient = useQueryClient();
   const {mutate: addNote, isLoading} = useMutation({
-    mutationFn: async () => await axios.post("http://localhost:5000/notes", {title, content}),
+    mutationFn: async () => await api.post(`${BASE_URL}/notes`, {title, content}),
     onSuccess: () => {
       setTitle("")
       setContent("")
@@ -25,13 +26,12 @@ export const DefaultNote = () => {
     setTitle("");
     setContent("");
   }
-  console.log( title, content)
   return (
-    <div className="rounded break-words">
+
       <div className="w-full h-64 flex flex-col justify-between dark:bg-gray-800 bg-white dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4">
         <div>
-          <form className="w-full max-w-sm" onSubmit={()=>addNote()}>
-            <div className="flex items-center border-b  border-gray-400 mb-6 py-1 px-1">
+          {/* <form className="w-full max-w-sm" > */}
+            <div className="flex items-center border-b  w-full border-gray-400 mb-6 py-1 px-1">
               <input
                 className="appearance-none bg-transparent border-none w-full text-gray-700 leading-tight focus:outline-none"
                 type="text"
@@ -42,8 +42,8 @@ export const DefaultNote = () => {
                 disabled={isLoading}
               />
             </div>
-          </form>
-          <form>
+          {/* </form> */}
+          {/* <form> */}
             <textarea
               className="h-full min-h-[100px] w-full resize-none border-transparent"
               placeholder="Write your thoughts here..."
@@ -51,10 +51,9 @@ export const DefaultNote = () => {
               onChange={handleTextAreaChange}
               disabled={isLoading}
             ></textarea>
-          </form>
-          <p className="text-gray-800 dark:text-gray-100 text-sm "></p>
+          {/* </form> */}
+          {/* <p className="text-gray-800 dark:text-gray-100 text-sm "></p> */}
         </div>
-        <div>
           <div className="flex items-center text-gray-800 dark:text-gray-100">
             <button type="button" onClick={()=>addNote()}>
               <div className="w-8 h-8 rounded-full bg-gray-800 dark:bg-gray-100 dark:text-gray-800 text-white flex items-center justify-center">
@@ -95,8 +94,6 @@ export const DefaultNote = () => {
               </svg>
             </div></button>
           </div>
-        </div>
       </div>
-    </div>
   );
 };

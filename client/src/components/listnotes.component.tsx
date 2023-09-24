@@ -1,29 +1,41 @@
-"use client"
-import { Note } from "@prisma/client";
-import React, { cache, use, useEffect, useState } from "react";
-import { UserNote } from "./note.component";
+"use client";
+import React from "react";
+import { UserNote } from "./usernote.component";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+import { api } from "@/app/api/actions";
+import { Note } from "@prisma/client";
+import { BASE_URL } from "../../appconfig";
+import { DefaultNote } from "./defaultnote.component";
 
 export default function ListNotes() {
-const queryClient = useQueryClient();
-const {data, isLoading, isError} = useQuery({
-  queryKey: ["notes"],
-  queryFn: async () => {
-    const { data } = await axios.get("http://localhost:5000/notes");
-    return data as Note[];
-  }
-})
+  const queryClient = useQueryClient();
+  const {
+    data: notes,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["notes"],
+    queryFn: async () => {
+      const { data } = await api.get(`${BASE_URL}/notes`);
+      return data as Note[];
+    },
+  });
 
-if (isLoading) return <div>Loading...</div>
-if(isError) return <div>Some error</div>
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Some error</div>;
   return (
     <div>
-      {data.map((note) => (
-        <div key={note.id}>
-          <UserNote {...note} />
+      <div className="mx-auto container py-20 px-6">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 rounded break-words">
+          <DefaultNote />
+          {notes.length > 0 &&
+            notes.map((note) => (
+              <div key={note.id}>
+                <UserNote {...note} />
+              </div>
+            ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

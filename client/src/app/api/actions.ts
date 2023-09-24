@@ -1,10 +1,8 @@
-import { Note } from "@prisma/client";
+import axios from "axios";
+import { BASE_URL } from "../../../appconfig";
 
-export const getNotes = async () => {
-    try {
-        const res = await fetch("http://localhost:5000/notes");
-        return res.json();
-      } catch (err) {
-        console.error(err)
-      }
-}
+axios.defaults.baseURL = BASE_URL;
+export const api = axios.create({
+  baseURL: BASE_URL,
+});
+

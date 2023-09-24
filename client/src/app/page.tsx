@@ -9,9 +9,7 @@ export default function Home() {
   return (
     <main>
       <QueryClientProvider client={queryClient}>
-      <div className="mx-auto container py-20 px-6">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <DefaultNote />
+
           <ListNotes />
           {/* <div>
             <div className="w-8 h-8 rounded-full bg-gray-800 dark:bg-gray-100 dark:text-gray-800 text-white flex items-center justify-center">
@@ -32,9 +30,8 @@ export default function Home() {
                 <path d="M5 12l14 0"></path>
               </svg>
             </div>
-          </div> */}
-        </div>
-      </div>
+          </div> 
+        </div>*/}
       </QueryClientProvider>
     </main>
   );
