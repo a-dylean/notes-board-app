@@ -1,5 +1,6 @@
 import axios from "axios";
-import { BASE_URL } from "../../../appconfig";
+
+export const BASE_URL = "http://localhost:5000";
 
 axios.defaults.baseURL = BASE_URL;
 export const api = axios.create({
