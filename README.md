@@ -9,7 +9,7 @@ Front-end:
 * [TailwindCSS](https://tailwindcss.com/)
 
 Back-end:
-* [Node.js](https://nodejs.org/en/docs) and (Express.js)[https://expressjs.com/]
+* [Node.js](https://nodejs.org/en/docs) and [Express.js](https://expressjs.com/)
 * [SQLite](https://www.sqlite.org/index.html)
 * [Prisma](https://www.prisma.io/docs)
 
