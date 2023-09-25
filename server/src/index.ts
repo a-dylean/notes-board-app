@@ -15,7 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const prisma = new PrismaClient();
 
 app.get("/notes", async (req, res) => {
-  const notes = await prisma.note.findMany();
+  const notes = await prisma.note.findMany({
+    orderBy: {
+      created:  'desc',
+    },
+  });
   res.json(notes);
 });
 
@@ -41,7 +45,6 @@ app.get("/notes/:noteId", async (req, res) => {
 app.put("/notes/:noteId", async (req, res) => {
   const { noteId } = req.params;
   const id = parseInt(noteId);
-  const { title, content } = req.body;
   const note = await prisma.note.update({
     where: { id },
     data: req.body,
