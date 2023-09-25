@@ -5,11 +5,13 @@ Simple SPA made with TypeScript enabling users to create notes on a board. The f
 Front-end:
 * [Next.js](https://nextjs.org/docs)
 * [React](https://react.dev/)
-* [TanStack Query](https://tanstack.com/query/latest/docs/react/overview) and [Axios](https://axios-http.com/docs/intro)
+* [TanStack Query](https://tanstack.com/query/latest/docs/react/overview)
+* [Axios](https://axios-http.com/docs/intro)
 * [TailwindCSS](https://tailwindcss.com/)
 
 Back-end:
-* [Node.js](https://nodejs.org/en/docs) and [Express.js](https://expressjs.com/)
+* [Node.js](https://nodejs.org/en/docs)
+* [Express.js](https://expressjs.com/)
 * [SQLite](https://www.sqlite.org/index.html)
 * [Prisma](https://www.prisma.io/docs)
 
