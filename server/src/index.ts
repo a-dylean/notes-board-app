@@ -1,23 +1,19 @@
-import express, {
-  Response as ExResponse,
-  Request as ExRequest,
-  NextFunction,
-} from "express";
-
+import express from "express";
 import cors from "cors";
 import { PrismaClient } from "@prisma/client";
 import bodyParser from "body-parser";
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json()) // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const prisma = new PrismaClient();
 
 app.get("/notes", async (req, res) => {
   const notes = await prisma.note.findMany({
     orderBy: {
-      created:  'desc',
+      created: "desc",
     },
   });
   res.json(notes);
@@ -26,21 +22,21 @@ app.get("/notes", async (req, res) => {
 app.post("/notes", async (req, res) => {
   const { title, content } = req.body;
   const note = await prisma.note.create({
-    data: {title, content}
+    data: { title, content },
   });
   res.json(note);
 });
 
 app.get("/notes/:noteId", async (req, res) => {
-    const { noteId } = req.params;
+  const { noteId } = req.params;
   const id = parseInt(noteId);
-    const note = await prisma.note.findUnique({
-      where: {
-        id,
-      },
-    });
-    res.json(note)
-  })
+  const note = await prisma.note.findUnique({
+    where: {
+      id,
+    },
+  });
+  res.json(note);
+});
 
 app.put("/notes/:noteId", async (req, res) => {
   const { noteId } = req.params;
