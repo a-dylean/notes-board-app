@@ -8,8 +8,8 @@ import { Content } from "@/app/ui/typography/content.component";
 import { EditButton } from "@/app/ui/buttons/edit.button";
 import { Footer } from "@/app/ui/typography/footer.component";
 import { DeleteButton } from "@/app/ui/buttons/delete.button";
-import { Note } from "@prisma/client";
 import { TextArea } from "@/app/ui/inputs/textarea.component";
+import { Note } from "@/types/note";
 
 export const UserNote = ({ id, title, content, created, edited }: Note) => {
   const [editMode, setEditMode] = useState(false);

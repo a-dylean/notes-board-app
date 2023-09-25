@@ -3,10 +3,10 @@ import React from "react";
 import { UserNote } from "./userNote";
 import { useQuery } from "@tanstack/react-query";
 import { BASE_URL, api } from "@/app/api/axios";
-import { Note } from "@prisma/client";
 import { NewNote } from "./newNote.component";
 import { Loader } from "./loader.component";
 import { Error } from "./error.component";
+import { Note } from "@/types/note";
 
 export default function ListNotes() {
   const {
@@ -29,7 +29,7 @@ export default function ListNotes() {
     content = <Error />;
   } else {
     content = (
-      <div className="flex flex-wrap gap-6">
+      <div className="flex flex-wrap justify-center gap-6">
         <NewNote />
         {notes.length > 0 &&
           notes.map((note) => (
