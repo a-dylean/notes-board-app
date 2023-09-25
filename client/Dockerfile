@@ -9,6 +9,8 @@ RUN npm install
 COPY src /app/src
 COPY public /app/public
 COPY tsconfig.json /app/tsconfig.json
+COPY tailwind.config.ts /app/tailwind.config.ts
+COPY next.config.js /app/next.config.js
 
 EXPOSE 3000
 CMD npm run dev
