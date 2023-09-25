@@ -2,9 +2,8 @@
 import React from "react";
 import { UserNote } from "./userNote";
 import { useQuery } from "@tanstack/react-query";
-import { api } from "@/app/api/axios";
+import { BASE_URL, api } from "@/app/api/axios";
 import { Note } from "@prisma/client";
-import { BASE_URL } from "../../appconfig";
 import { NewNote } from "./newNote.component";
 import { Loader } from "./loader.component";
 import { Error } from "./error.component";

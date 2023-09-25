@@ -1,8 +1,7 @@
 "use client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { BASE_URL } from "../../appconfig";
-import { api } from "@/app/api/axios";
+import { BASE_URL, api } from "@/app/api/axios";
 import { TextArea } from "@/app/ui/inputs/textarea.component";
 import { DeleteButton } from "@/app/ui/buttons/delete.button";
 import { SaveButton } from "@/app/ui/buttons/save.button";
