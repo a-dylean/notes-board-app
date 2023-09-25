@@ -18,7 +18,7 @@ Back-end:
 ## How to run locally ##
 1. Clone the repositary
 ```
-git clone [https://github.com/a-dylean/book-search.git](https://github.com/a-dylean/notes-board-app.git)
+git clone https://github.com/a-dylean/notes-board-app.git
 ```
 2. Install dependencies
 ```
