@@ -1,11 +1,12 @@
 "use client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { BASE_URL, api } from "@/app/api/axios";
+import { api } from "@/app/api/axios";
 import { TextArea } from "@/app/ui/inputs/textarea.component";
 import { DeleteButton } from "@/app/ui/buttons/delete.button";
 import { SaveButton } from "@/app/ui/buttons/save.button";
 import { Card } from "./card.component";
+import { BASE_URL } from "@/config";
 
 export const NewNote = () => {
   const [key, setKey] = useState(crypto.randomUUID());

@@ -17,7 +17,7 @@ export const UserNote = ({ id, title, content, created, edited }: Note) => {
   const queryClient = useQueryClient();
 
   const { mutate: deleteNote } = useMutation({
-    mutationFn: async () => await api.delete(`notes/${id}`),
+    mutationFn: async () => await api.delete(`/notes/${id}`),
     onSuccess: () => {
       queryClient.invalidateQueries(["notes"]);
     },
@@ -27,7 +27,7 @@ export const UserNote = ({ id, title, content, created, edited }: Note) => {
 
   const { mutate: updateNote, isLoading } = useMutation({
     mutationFn: async () =>
-      await api.put(`notes/${id}`, {
+      await api.put(`/notes/${id}`, {
         title: newTitle,
         content: newContent,
         edited: new Date(),
