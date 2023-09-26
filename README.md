@@ -31,10 +31,10 @@ docker run -it backend
 ```
 3. Install dependencies in client folder and run the app on localhost:3000
 ```
- npm i & npm run dev 
+ npm i && npm run dev 
 ```
 
-## Screenshots ##
+## Screenshot ##
 <p align="center" width="100%">
 <img width="849" alt="Screenshot 2023-09-25 201337" src="https://github.com/a-dylean/notes-board-app/assets/83976465/1d896a8c-a0d8-4b0c-9dc4-c076876fa11f">
 </p>
