@@ -2,9 +2,16 @@ import express from "express";
 import cors from "cors";
 import { PrismaClient } from "@prisma/client";
 import bodyParser from "body-parser";
+import { FRONTEND_ORIGIN } from "./config";
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: [FRONTEND_ORIGIN],
+    allowedHeaders: ["authorization", "content-type", "cookies"],
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
