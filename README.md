@@ -1,6 +1,8 @@
 # Notes Board App #
 Simple SPA made with TypeScript enabling users to create notes on a board. The functionality includes adding new notes, editing and deleting.
 
+Deployed version [here](https://notes.atonkopiy.com/)
+
 ## Tech stack ##
 Front-end:
 * [Next.js](https://nextjs.org/docs)
@@ -20,16 +22,19 @@ Back-end:
 ```
 git clone https://github.com/a-dylean/notes-board-app.git
 ```
-2. Install dependencies
+2. Build docker image in server folder and run it
 ```
-npm install
+docker build -t backend .
 ```
-3. Run the app
 ```
-npm run start
+docker run -it backend
+```
+3. Install dependencies in client folder and run the app on localhost:3000
+```
+ npm i & npm run dev 
 ```
 
 ## Screenshots ##
 <p align="center" width="100%">
-<img width="850" alt="Screenshot 2023-09-25 201337" src="https://github.com/a-dylean/notes-board-app/assets/83976465/2a9c5bba-3cee-4f85-a5e7-f6381aa74e04">
+<img width="849" alt="Screenshot 2023-09-25 201337" src="https://github.com/a-dylean/notes-board-app/assets/83976465/1d896a8c-a0d8-4b0c-9dc4-c076876fa11f">
 </p>
