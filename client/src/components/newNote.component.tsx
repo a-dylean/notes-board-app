@@ -6,7 +6,6 @@ import { TextArea } from "@/app/ui/inputs/textarea.component";
 import { DeleteButton } from "@/app/ui/buttons/delete.button";
 import { SaveButton } from "@/app/ui/buttons/save.button";
 import { Card } from "./card.component";
-import { BASE_URL } from "@/config";
 
 export const NewNote = () => {
   const [key, setKey] = useState(crypto.randomUUID());
@@ -15,7 +14,7 @@ export const NewNote = () => {
   const queryClient = useQueryClient();
   const { mutate: addNote } = useMutation({
     mutationFn: async () =>
-      await api.post(`${BASE_URL}/notes`, { title, content }),
+      await api.post(`notes`, { title, content }),
     onSuccess: () => {
       clearInput();
       queryClient.invalidateQueries(["notes"]);

@@ -7,7 +7,6 @@ import { NewNote } from "./newNote.component";
 import { Loader } from "./loader.component";
 import { Error } from "./error.component";
 import { Note } from "@/types/note";
-import { BASE_URL } from "@/config";
 
 export default function ListNotes() {
   const {
@@ -17,7 +16,7 @@ export default function ListNotes() {
   } = useQuery({
     queryKey: ["notes"],
     queryFn: async () => {
-      const { data } = await api.get(`${BASE_URL}/notes`);
+      const { data } = await api.get(`notes`);
       return data as Note[];
     },
   });
